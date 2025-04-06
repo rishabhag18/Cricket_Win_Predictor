@@ -4,14 +4,16 @@ import pickle
 import sklearn
 import pandas as pd
 
-teams = ['Sunrisers Hyderabad',
- 'Mumbai Indians',
- 'Royal Challengers Bangalore',
- 'Kolkata Knight Riders',
- 'Kings XI Punjab',
- 'Chennai Super Kings',
- 'Rajasthan Royals',
- 'Delhi Capitals']
+teams = [
+    'Sunrisers Hyderabad',
+    'Mumbai Indians',
+    'Royal Challengers Bangalore',
+    'Kolkata Knight Riders',
+    'Punjab Kings',
+    'Chennai Super Kings',
+    'Rajasthan Royals',
+    'Delhi Capitals'
+]
 
 cities = ['Hyderabad', 'Bangalore', 'Mumbai', 'Indore', 'Kolkata', 'Delhi',
        'Chandigarh', 'Jaipur', 'Chennai', 'Cape Town', 'Port Elizabeth',

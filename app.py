@@ -5,7 +5,7 @@ import sklearn
 import pandas as pd
 
 
- #mai raj the baban billo hoon
+# Shaibal the goat
 
 teams = [
     'Sunrisers Hyderabad',

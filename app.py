@@ -4,6 +4,9 @@ import pickle
 import sklearn
 import pandas as pd
 
+
+ #mai raj the baban billo hoon
+
 teams = [
     'Sunrisers Hyderabad',
     'Mumbai Indians',

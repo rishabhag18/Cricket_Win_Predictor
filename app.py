@@ -3,9 +3,29 @@ import streamlit as st
 import pickle
 import sklearn
 import pandas as pd
+import plotly.express as px
 
 
-# Shaibal the goat
+# def set_bg_image(image_url: str):
+#     st.markdown(
+#         f"""
+#         <style>
+#         .stApp {{
+#             background-image: url("{image_url}");
+#             background-color: rgba(255, 255, 255, 1);
+#             background-size: cover;
+#             background-repeat: no-repeat;
+#             background-attachment: fixed;
+#             z-index: -1;
+#         }}
+#         </style>
+#         """,
+#         unsafe_allow_html=True
+#     )
+
+# set_bg_image("https://raw.githubusercontent.com/skrishnan2001/IPL-Winning-Team-Predictor/master/Images/IPL_background_image.jpg")
+
+
 
 teams = [
     'Sunrisers Hyderabad',
@@ -26,7 +46,7 @@ cities = ['Hyderabad', 'Bangalore', 'Mumbai', 'Indore', 'Kolkata', 'Delhi',
        'Sharjah', 'Mohali', 'Bengaluru']
 
 pipe = pickle.load(open('pipe.pkl','rb'))
-st.title('IPL Win Predictor')
+st.title('🏏 IPL Win Predictor')
 
 col1, col2 = st.columns(2)
 
@@ -40,22 +60,22 @@ with col2:
 
 selected_city = st.selectbox('Select host city',sorted(cities))
 
-target = st.number_input("Target", min_value=1, max_value=350, step=1, format="%d")
+target = st.number_input("🎯 Target Score", min_value=1, max_value=350, step=1, format="%d")
 
 col3,col4,col5 = st.columns(3)
 
 with col3:
-    score = st.number_input("Score", min_value=0, max_value=target, step=1, format="%d")
+    score = st.number_input("🏏 Current Score", min_value=0, max_value=target, step=1, format="%d")
     if( score >= target):
         st.toast("Score should be less than target", icon="⚠️")
         st.stop()
 
 with col4:
-    overs = st.number_input("Overs completed", min_value=1, max_value=20, step=1, format="%d")
+    overs = st.number_input("⏱ Overs Completed", min_value=1, max_value=20, step=1, format="%d")
 
 
 with col5:
-    wickets = st.number_input("Wickets out", min_value=0, max_value=10, step=1, format="%d")
+    wickets = st.number_input("🚨 Wickets Fallen", min_value=0, max_value=10, step=1, format="%d")
 
 if st.button('Predict Probability'):
     runs_left = target - score
@@ -69,6 +89,33 @@ if st.button('Predict Probability'):
     result = pipe.predict_proba(input_df)
     loss = result[0][0]
     win = result[0][1]
-    st.header(batting_team + "- " + str(round(win*100)) + "%")
-    st.header(bowling_team + "- " + str(round(loss*100)) + "%")
+
+
+
+    col_result, col_chart = st.columns([1, 1.5])
+
+    with col_result:
+        st.subheader("🔮 Win Probability")
+        st.write(f"### 🟢 {batting_team}: **{round(win * 100)}%**")
+        st.write(f"### 🔴 {bowling_team}: **{round(loss * 100)}%**")
+
+    with col_chart:
+        # Pie Chart
+        pie_df = pd.DataFrame({
+            'Outcome': [f'{batting_team} Win', f'{bowling_team} Win'],
+            'Probability': [win, loss]
+        })
+
+        fig_pie = px.pie(
+            pie_df, values='Probability', names='Outcome',
+            color_discrete_sequence=['#00cc96', '#EF553B'],
+            title='',
+            hole=0.4
+        )
+
+        st.plotly_chart(fig_pie, use_container_width=True)
+
+
+
+
 

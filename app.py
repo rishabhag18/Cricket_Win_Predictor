@@ -6,24 +6,6 @@ import pandas as pd
 import plotly.express as px
 
 
-# def set_bg_image(image_url: str):
-#     st.markdown(
-#         f"""
-#         <style>
-#         .stApp {{
-#             background-image: url("{image_url}");
-#             background-color: rgba(255, 255, 255, 1);
-#             background-size: cover;
-#             background-repeat: no-repeat;
-#             background-attachment: fixed;
-#             z-index: -1;
-#         }}
-#         </style>
-#         """,
-#         unsafe_allow_html=True
-#     )
-
-# set_bg_image("https://raw.githubusercontent.com/skrishnan2001/IPL-Winning-Team-Predictor/master/Images/IPL_background_image.jpg")
 
 
 

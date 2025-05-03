@@ -27,7 +27,12 @@ cities = ['Hyderabad', 'Bangalore', 'Mumbai', 'Indore', 'Kolkata', 'Delhi',
        'Visakhapatnam', 'Pune', 'Raipur', 'Ranchi', 'Abu Dhabi',
        'Sharjah', 'Mohali', 'Bengaluru']
 
-pipe = pickle.load(open('pipe.pkl','rb'))
+# pipe = pickle.load(open('log_pipe.pkl','rb')) # for logistic regression model
+pipe = pickle.load(open('random_pipe.pkl','rb')) # for random forest model
+# pipe = pickle.load(open('xgb_pipe.pkl','rb')) # for xgboost model
+# pipe = pickle.load(open('ada_pipe.pkl','rb')) # for adaboost model
+# pipe = pickle.load(open('pipe.pkl','rb')) # for svm model
+
 st.title('🏏 IPL Win Predictor')
 
 col1, col2 = st.columns(2)

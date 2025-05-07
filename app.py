@@ -63,6 +63,9 @@ with col4:
 
 with col5:
     wickets = st.number_input("🚨 Wickets Fallen", min_value=0, max_value=10, step=1, format="%d")
+    if( wickets >= 10):
+        st.toast("Maximum 9 wickets can be fallen for the batting team", icon="⚠️")
+        st.stop()
 
 if st.button('Predict Probability'):
     runs_left = target - score

@@ -98,7 +98,7 @@ if st.button('Predict Probability'):
 
         fig_pie = px.pie(
             pie_df, values='Probability', names='Outcome',
-            color_discrete_sequence=['#00cc96', '#EF553B'],
+            color_discrete_sequence=['#EF553B', '#00cc96'],
             title='',
             hole=0.4
         )

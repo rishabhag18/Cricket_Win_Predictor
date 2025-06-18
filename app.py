@@ -17,7 +17,9 @@ teams = [
     'Punjab Kings',
     'Chennai Super Kings',
     'Rajasthan Royals',
-    'Delhi Capitals'
+    'Delhi Capitals',
+    'Lucknow Super Giants',
+    'Gujarat Titans'
 ]
 
 cities = ['Hyderabad', 'Bangalore', 'Mumbai', 'Indore', 'Kolkata', 'Delhi',

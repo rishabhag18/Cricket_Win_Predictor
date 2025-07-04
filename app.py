@@ -27,7 +27,7 @@ cities = ['Hyderabad', 'Bangalore', 'Mumbai', 'Indore', 'Kolkata', 'Delhi',
        'Durban', 'Centurion', 'East London', 'Johannesburg', 'Kimberley',
        'Bloemfontein', 'Ahmedabad', 'Cuttack', 'Nagpur', 'Dharamsala',
        'Visakhapatnam', 'Pune', 'Raipur', 'Ranchi', 'Abu Dhabi',
-       'Sharjah', 'Mohali', 'Bengaluru']
+       'Sharjah', 'Mohali']
 
 # pipe = pickle.load(open('log_pipe.pkl','rb')) # for logistic regression model
 pipe = pickle.load(open('random_pipe.pkl','rb')) # for random forest model
